@@ -1,0 +1,12 @@
+version: '3'
+services:
+  dropspot-service:
+    container_name: dropspot-service
+    build:
+      context: .
+    command: ['npm', 'run', 'dev']
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - '8000:3000'
