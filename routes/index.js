@@ -10,12 +10,15 @@ const {
   stopContainer
 } = require('../src/modules/docker');
 
-const schema = Joi.object({
-  username: Joi.string().required(),
-  password: Joi.string().required(),
-  serveraddress: Joi.string().required(),
-  imageUrl: Joi.string().required()
-}).unknown(true);
+const schema = Joi.object()
+  .keys({
+    username: Joi.string().required(),
+    password: Joi.string().required(),
+    serveraddress: Joi.string().required(),
+    imageUrl: Joi.string().required(),
+    port: Joi.string().required()
+  })
+  .unknown(true);
 
 router.get('/', function(req, res, next) {
   res.reply({ message: 'Dropspot continuous delivery service' });
@@ -59,7 +62,7 @@ router.post('/trigger-deployment', locker.unlock, async function(
     let toExposePort = Object.entries(
       toRunImage.ContainerConfig.ExposedPorts
     ).map(([key, value]) => key)[0];
-    console.log('toExposePort', toExposePort);
+    console.log('toExposePort', toExposePort, opts.port);
 
     let constiner = await createAndRunContainer(opts.imageUrl, toExposePort);
     res.reply({ data: { id: constiner.id } });

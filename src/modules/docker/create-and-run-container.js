@@ -2,14 +2,18 @@
 
 const docker = require('./docker-context');
 
-const createAndRunContainer = async (imageName, toExposePort = '3000/tcp') => {
+const createAndRunContainer = async (
+  imageName,
+  toExposePort = '3000/tcp',
+  port = '5000'
+) => {
   console.log(imageName);
 
   let PortBindings = {};
 
   PortBindings[toExposePort] = [
     {
-      HostPort: '5000'
+      HostPort: port
     }
   ];
 
