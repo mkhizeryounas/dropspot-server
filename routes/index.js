@@ -64,7 +64,7 @@ router.post('/trigger-deployment', locker.unlock, async function(
     ).map(([key, value]) => key)[0];
     console.log('toExposePort', toExposePort, opts.port);
 
-    let constiner = await createAndRunContainer(opts.imageUrl, toExposePort);
+    let constiner = await createAndRunContainer(opts.imageUrl, toExposePort, , opts.port);
     res.reply({ data: { id: constiner.id } });
   } catch (err) {
     console.log('Err', err);
