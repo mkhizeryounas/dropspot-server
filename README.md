@@ -1,7 +1,7 @@
 # Dropspot Server
 Dropspot is an opensource & lightweight continuous delivery service. Install dropspot server on your server or VPS to get started.
 
-# How to install
+### How to install
 - Install PM2
 - Clone the project in your server
 - Edit your ```secret``` and ```api_key``` in ```dropspot-server/ecosystem.config.js``` to a random uuid.
@@ -14,5 +14,5 @@ nano ecosystem.config.js
 pm2 start ecosystem.config.js
 ```
 
-# Demo project
+### Demo project
 Refer to ```github/workflows/deployment.yml``` in [this repo](https://github.com/mkhizeryounas/express).
