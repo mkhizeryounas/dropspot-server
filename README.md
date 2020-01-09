@@ -15,5 +15,4 @@ pm2 start ecosystem.config.js
 ```
 
 # Demo project
-Refer to ```github/workflows/deployment.yml```
-[https://github.com/mkhizeryounas/express](https://github.com/mkhizeryounas/express)
+Refer to ```github/workflows/deployment.yml``` in [this repo](https://github.com/mkhizeryounas/express).
